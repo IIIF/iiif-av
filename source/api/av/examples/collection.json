@@ -1,0 +1,127 @@
+{
+    "id": "collection.json",
+    "type": "Collection",
+    "label": "AV examples",
+    "members": [
+        {
+            "id": "1.json",
+            "type": "Canvas", 
+            "label": "Duration on a Canvas"
+        },
+        {
+            "id": "2a.json",
+            "type": "Canvas", 
+            "label": "Temporal Fragment of a Canvas"
+        },
+        {
+            "id": "2b.json",
+            "type": "Canvas", 
+            "label": "Temporal Fragment of a Video"
+        },
+        {
+            "id": "4.json",
+            "type": "Canvas", 
+            "label": "Associate Audio with temporal only Canvas"
+        },
+        {
+            "id": "5.json",
+            "type": "Canvas", 
+            "label": "Associate Video with Canvas"
+        },
+        {
+            "id": "6.json",
+            "type": "Canvas", 
+            "label": "Associate Videos with times on a Canvas"
+        },
+        {
+            "id": "7.json",
+            "type": "Canvas", 
+            "label": "Associate Videos with different spaces on a Canvas"
+        },
+        {
+            "id": "8.json",
+            "type": "Canvas", 
+            "label": "Associate Videos with overlapping time and space on a Canvas"
+        },
+        {
+            "id": "9.json",
+            "type": "Canvas", 
+            "label": "Associate Video and Audio on single Canvas [e.g. Director's commentary]"
+        },
+        {
+            "id": "10.json",
+            "type": "Canvas", 
+            "label": "Associate Video with text overlaid at particular location on Canvas [subtitles]"
+        },
+        {
+            "id": "11.json",
+            "type": "Canvas", 
+            "label": "Associate Video with WebVTT subtitle file"
+        },
+        {
+            "id": "12.json",
+            "type": "Canvas", 
+            "label": "Associate multiple Video (or Audio) representations as Choice"
+        },
+        {
+            "id": "13.json",
+            "type": "Canvas", 
+            "label": "Associate multiple Video representations as Choice, some HLS/MPEG-DASH"
+        },
+        {
+            "id": "14.json",
+            "type": "Canvas", 
+            "label": "Associate an authentication service in remote info.json for video"
+        },
+        {
+            "id": "15.json",
+            "type": "Manifest", 
+            "label": "Manifest with multiple canvases, each with own audio track [album]"
+        },
+        {
+            "id": "16.json",
+            "type": "Manifest", 
+            "label": "one audio file, segments of file associated with different canvases"
+        },
+        {
+            "id": "17.json",
+            "type": "Manifest", 
+            "label": "with Ranges for hierarchical navigation"
+        },
+        {
+            "id": "18.json",
+            "type": "Manifest", 
+            "label": "Single canvas with explicit gaps between audio tracks"
+        },
+        {
+            "id": "20.json",
+            "type": "Manifest", 
+            "label": "with lyrics associated to the sub-canvases"
+        },
+        {
+            "id": "21.json",
+            "type": "Manifest", 
+            "label": "Multiple canvases with 'autoadvance'"
+        },
+        {
+            "id": "22.json",
+            "type": "Manifest", 
+            "label": "Manifest with canvases that the player auto advances from 1 to 2"
+        },
+        {
+            "id": "24.json",
+            "type": "Manifest", 
+            "label": "Score images with audio (or video) performance annotated per region"
+        },
+        {
+            "id": "29.json",
+            "type": "Manifest", 
+            "label": "Associate Audio and thumbnail with temporal only Canvas"
+        },
+        {
+            "id": "30.json",
+            "type": "Manifest", 
+            "label": "Start seeked into the canvas"
+        }
+    ]
+}
