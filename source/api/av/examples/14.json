@@ -1,0 +1,45 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate an authentication service in remote info.json for video",
+	"description": "",
+	"height": 1000,
+	"width": 1000,
+	"duration": 100,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": 
+						{
+							"type": "Choice",
+							"viewingHint": "equivalent",
+							"items": [
+								{
+									"id": "http://example.org/foo.mp4",
+									"type": "Video",
+									"format": "video/mpeg4;codecs='...'",
+									"service": {
+										"id": "http://example.org/whatever-for-foo/info.json",
+										"profile": "http://iiif.io/api/av/0/level0.json",	
+										"description": "Auth services live in this external json"
+									}
+								},
+								{
+									"id": "http://example.org/foo.avi",
+									"type": "Video"
+								}
+							]
+						},
+					"target": "http://example.org/iiif/canvas/1"
+				}
+			]
+		}
+	]
+}

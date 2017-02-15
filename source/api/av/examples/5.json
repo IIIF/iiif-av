@@ -1,0 +1,33 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate Video with Canvas",
+	"description": "Video will be distorted in xy to be square, and trimmed after 57.6 seconds of normal play time",
+	"height": 1000,
+	"width": 1000,
+	"duration": 57.6,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"timeMode": "trim", // "scale", "trim" (default), "loop"
+					"body": {
+						"id": "http://example.org/foo.avi",
+						"type": "Video",
+						"height": 768,
+						"width": 1440,
+						"duration": 100
+
+					},
+					"target": "http://example.org/iiif/canvas/1"
+				}
+			]
+		}
+	]
+}

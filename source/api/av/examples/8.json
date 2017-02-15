@@ -1,0 +1,40 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate Videos with overlapping time and space on a Canvas",
+	"description": "",
+	"height": 1000,
+	"width": 1000,
+	"duration": 100,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"timeMode": "trim",
+					"body": {
+						"id": "http://example.org/foo.avi",
+						"type": "Video"
+					},
+					"target": "http://example.org/iiif/canvas/1#xywh=0,0,500,500&t=0,60"
+				},
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"timeMode": "trim",
+					"body": {
+						"id": "http://example.org/foo2.avi",
+						"type": "Video"
+					},
+					"target": "http://example.org/iiif/canvas/1#xywh=100,100,500,500&t=40,100"
+				}
+			]
+		}
+	]
+}

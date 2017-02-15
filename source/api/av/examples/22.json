@@ -1,0 +1,65 @@
+
+{
+	"type": "Manifest",
+	"label": "autoadvance viewingHint",
+	"description": "Manifest with canvases that the player auto advances from 1 to 2",
+	"viewingHint": "autoadvance", // Could also be on sequence, individual canvases
+	"sequences": [
+		{
+			"type": "Sequence",
+			"canvases": [
+				{
+					"id": "http://example.org/iiif/canvas/1",
+					"type": "Canvas",
+					"label": "Track 1",
+					"description": "",
+					"duration": 40,
+					"content": [
+						{
+							"id": "...",
+							"type": "AnnotationPage",
+							"items": [
+								{
+									"id": "...",
+									"type": "Annotation",
+									"motivation": "painting",
+									"body": {
+										"id": "http://example.org/iiif/foo.mp3",
+										"type": "Audio"
+									},
+									"target": "http://example.org/iiif/canvas/1"
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": "http://example.org/iiif/canvas/2",
+					"type": "Canvas",
+					"label": "Track 2",
+					"description": "",
+					"duration": 45,
+					"content": [
+						{
+							"id": "...",
+							"type": "AnnotationPage",
+							"items": [
+								{
+									"id": "...",
+									"type": "Annotation",
+									"motivation": "painting",
+									"body": {
+										"id": "http://example.org/iiif/foo2.mp3",
+										"type": "Audio"
+									},
+									"target": "http://example.org/iiif/canvas/2"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
+

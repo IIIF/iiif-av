@@ -1,0 +1,9 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Duration on a Canvas",
+	"height": 1440,
+	"width": 1920,
+	"duration": 57.6
+}

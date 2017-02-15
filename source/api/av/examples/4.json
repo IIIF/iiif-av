@@ -1,0 +1,26 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate Audio with temporal only Canvas",
+	"description": "Default behavior is to trim at the end of the canvas's duration, if the audio lasts longer than it.",
+	"duration": 57.6,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/foo.mp3",
+						"type": "Audio"
+					},
+					"target": "http://example.org/iiif/canvas/1"
+				}
+			]
+		}
+	]
+}

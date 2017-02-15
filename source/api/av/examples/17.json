@@ -1,0 +1,101 @@
+
+{
+	"type": "Manifest",
+	"label": "Orange Album",
+	"sequences": [{
+		"type": "Sequence",
+		"canvases": [{
+			"id": "http://example.org/iiif/canvas/1",
+			"type": "Canvas",
+			"label": "Track 1",
+			"description": "",
+			"duration": 57.6,
+			"content": [
+				{
+					"id": "...",
+					"type": "AnnotationPage",
+					"items": [
+						{
+							"id": "...",
+							"type": "Annotation",
+							"motivation": "painting",
+							"timeMode": "trim", // "scale", "trim" (default), "loop"
+							"body": {
+								"id": "http://example.org/foo.mp3",
+								"type": "Audio"
+							},
+							"target": "http://example.org/iiif/canvas/1"
+						}
+					]
+				}
+			]			
+		},
+		{
+			"id": "http://example.org/iiif/canvas/2",
+			"type": "Canvas",
+			"label": "Track 2",
+			"description": "",
+			"duration": 72.4,
+			"content": [
+				{
+					"id": "...",
+					"type": "AnnotationPage",
+					"items": [
+						{
+							"id": "...",
+							"type": "Annotation",
+							"motivation": "painting",
+							"timeMode": "trim",
+							"body": {
+								"id": "http://example.org/foo2.mp3",
+								"type": "Audio"
+							},
+							"target": "http://example.org/iiif/canvas/2"
+						}
+					]
+				}
+			]			
+		}
+	]
+	}],
+	"structures": [
+		{
+			"id": "http://example.org/iiif/range/0",
+			"type": "Range",
+			"viewingHint": "top",
+			"label": "Table of Contents",
+			"members": [
+				{
+					"id": "http://example.org/iiif/canvas/1", 
+					"type": "Canvas",
+					"label": "Opera Act 1",
+				},
+				{
+					"id": "http://example.org/iiif/range/2",
+					"type": "Range",
+					"label": "Opera Act 2",
+				}
+			]
+		},
+		{
+			"id": "http://example.org/iiif/range/2",
+			"type": "Range",
+			"label": "Opera Act 2",
+			"canvases": ["canvas/2"],
+
+			"ranges": [
+
+				{
+					"id": "http://example.org/iiif/range/3", 
+					"type": "Range",
+					"label": "Act 2, Scene 2"
+				},
+				{
+					"id": "http://example.org/iiif/canvas2#t=30,", 
+					"type": "Canvas",
+					"label": "Rest of Act 2"
+				},				
+			]
+		}
+	]	
+}

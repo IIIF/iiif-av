@@ -1,0 +1,40 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate Videos with times on a Canvas",
+	"description": "If foo.avi is < 50 seconds, then keep last frame displayed.  If longer than 50 seconds, then trim.",
+	"height": 1000,
+	"width": 1000,
+	"duration": 100,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"timeMode": "trim",
+					"body": {
+						"id": "http://example.org/foo.avi",
+						"type": "Video"
+					},
+					"target": "http://example.org/iiif/canvas/1#t=0,50"
+				},
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"timeMode": "trim",
+					"body": {
+						"id": "http://example.org/foo2.avi",
+						"type": "Video"
+					},
+					"target": "http://example.org/iiif/canvas/1#t=50,100"
+				}
+			]
+		}
+	]
+}

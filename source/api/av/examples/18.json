@@ -1,0 +1,36 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Single canvas with explicit gaps between audio tracks",
+	"description": "N.B. the order of the items in the list is not important",
+	"duration": 82,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/foo.mp3",
+						"type": "Audio"
+					},
+					"target": "http://example.org/iiif/canvas/1#t=0,40"
+				},
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/foo2.mp3",
+						"type": "Audio"
+					},
+					"target": "http://example.org/iiif/canvas/1#t=42,82"
+				}
+			]
+		}
+	]
+}

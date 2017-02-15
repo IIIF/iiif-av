@@ -1,0 +1,53 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Score images with audio (or video) performance annotated per region",
+	"description": "Physical object (score book) is treated as the 'important' thing, so we have a viewingHint=paged,autoadvance,dont-stop-the-music manifest, where each canvas is a page (rather than the performance of the music notated being primary. Client should keep music playing (autoadvance) rather than halting the music to wait for the image to load.",
+	"height": 1000,
+	"width": 1000,
+	"duration": 20,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/pages/1.jpg",
+						"type": "Image",
+						"service": {
+							"id": "..."
+						},
+					},
+					"target": "http://example.org/iiif/canvas/1"
+				},
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/foo.mp3#t0,20",
+						"type": "Audio"
+					},
+					"target": "http://example.org/iiif/canvas/1"
+				},
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "highlighting",
+					"target": "http://example.org/iiif/canvas/1#xywh=10,60,400,40&t=0,10"
+				},
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "highlighting",
+					"target": "http://example.org/iiif/canvas/1#xywh=10,100,400,40&t=10,20"
+				}				
+			]
+		}
+	]
+}

@@ -1,0 +1,50 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate Video with text overlaid at particular location on Canvas [subtitles]",
+	"description": "",
+	"height": 1000,
+	"width": 1000,
+	"duration": 100,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/foo.avi",
+						"type": "Video"
+					},
+					"target": "http://example.org/iiif/canvas/1"
+				},
+			]
+		},
+		{
+			"id": "...",
+			"type": "AnnotationPage",	
+			"within": {
+				"id": "...",
+				"type": "AnnotationCollection",
+				"label": "Captions, not Subtitles",
+				"caption-ns:someproperty": "some-value-for-caption-ness"
+			},
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"type": "TextualBody",
+						"value": "This is the __Caption__ for t=10,15"
+					},
+					"target": "http://example.org/iiif/canvas/1#t=10,15&xywh=800,400,100,20"
+				}
+			]
+		}
+	]
+}

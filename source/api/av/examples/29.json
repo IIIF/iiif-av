@@ -1,0 +1,27 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate Audio and thumbnail with temporal only Canvas",
+	"description": "",
+	"duration": 57.6,
+	"thumbnail": "http://example.org/image.jpg", // could also have service
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/foo.mp3",
+						"type": "Audio"
+					},
+					"target": "http://example.org/iiif/canvas/1"
+				}
+			]
+		}
+	]
+}

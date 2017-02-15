@@ -1,0 +1,65 @@
+
+{
+	"type": "Manifest",
+	"label": "Orange Album",
+	"sequences": [{
+		"type": "Sequence",
+		"canvases": [{
+			"id": "http://example.org/iiif/canvas/1",
+			"type": "Canvas",
+			"label": "Track 1",
+			"description": "",
+			"duration": 57.6,
+			"content": [
+				{
+					"id": "...",
+					"type": "AnnotationPage",
+					"items": [
+						{
+							"id": "...",
+							"type": "Annotation",
+							"motivation": "painting",
+							"timeMode": "trim", // "scale", "trim" (default), "loop"
+							"body": {
+								"id": "http://example.org/foo.mp3",
+								"type": "Audio"
+							},
+							"target": "http://example.org/iiif/canvas/1"
+						}
+					]
+				}
+			]			
+		},
+		{
+			"id": "http://example.org/iiif/canvas/2",
+			"type": "Canvas",
+			"label": "Track 2",
+			"description": "",
+			"duration": 72.4,
+			"content": [
+				{
+					"id": "...",
+					"type": "AnnotationPage",
+					"items": [
+						{
+							"id": "...",
+							"type": "Annotation",
+							"motivation": "painting",
+							"timeMode": "trim",
+							"body": {
+								"id": "http://example.org/foo2.mp3",
+								"type": "Audio"
+							},
+							"target": "http://example.org/iiif/canvas/2"
+						}
+					]
+				}
+			]			
+		}
+	]
+	}]
+}
+
+{
+
+}

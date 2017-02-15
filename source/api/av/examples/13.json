@@ -1,0 +1,45 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate multiple Video representations as Choice, some HLS/MPEG-DASH",
+	"description": "",
+	"height": 1000,
+	"width": 1000,
+	"duration": 100,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": 
+						{
+							"type": "Choice",
+							"viewingHint": "equivalent",
+							"items": [
+								{
+									"id": "http://example.org/foo.mp4",
+									"type": "Video"
+								},
+								{
+									"id": "http://example.org/foo.avi",
+									"type": "Video",
+									"format": "video/avi"
+								},
+								{
+									"id": "http://example.org/foo.mpd",
+									"type": "Video",
+									"format": "application/dash+xml",
+								}
+							]
+						},
+					"target": "http://example.org/iiif/canvas/1"
+				}
+			]
+		}
+	]
+}

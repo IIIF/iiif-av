@@ -1,0 +1,38 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate Video and Audio on single Canvas [e.g. Director's commentary]",
+	"description": "Default assumption is that audio from the video will also be played, and that the client should provide the user independent control of the volume of each",
+	"height": 1000,
+	"width": 1000,
+	"duration": 100,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/foo.avi",
+						"type": "Video"
+					},
+					"target": "http://example.org/iiif/canvas/1"
+				},
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": {
+						"id": "http://example.org/commentary.mp3",
+						"type": "Audio"
+					},
+					"target": "http://example.org/iiif/canvas/1"
+				}
+			]
+		}
+	]
+}
