@@ -1,0 +1,58 @@
+
+{
+	"id": "http://example.org/iiif/canvas/1",
+	"type": "Canvas",
+	"label": "Associate Video with WebVTT subtitle file",
+	"description": "Expected behavior is to render one of the videos (based on technical considerations), and the one of the set of VTT subtitles (based on client language localization).",
+	"height": 1000,
+	"width": 1000,
+	"duration": 100,
+	"content": [
+		{
+			"id": "...",
+			"type": "AnnotationPage",
+			"items": [
+				{
+					"id": "...",
+					"type": "Annotation",
+					"motivation": "painting",
+					"body": [
+						{
+							"type": "Choice",
+							"choiceHint": "client",
+							"items": [
+								{
+									"id": "http://example.org/foo.mp4",
+									"type": "Video"
+								},
+								{
+									"id": "http://example.org/foo.avi",
+									"type": "Video"
+								}
+							]
+						},
+						{
+							"type": "Choice",
+							"choiceHint": "client",
+							"items": [
+								{
+									"id": "http://example.org/foo-fr.vtt",
+									"type": "Text",
+									"format": "text/vtt",
+									"language": "fr"
+								},
+								{
+									"id": "http://example.org/foo-de.vtt",
+									"type": "Text",
+									"format": "text/vtt",
+									"language": "de"
+								}
+							]
+						}
+					],
+					"target": "http://example.org/iiif/canvas/1"
+				}
+			]
+		}
+	]
+}
