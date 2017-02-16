@@ -33,7 +33,7 @@
 								{
 									"id": "http://example.org/foo.mpd",
 									"type": "Video",
-									"format": "application/dash+xml",
+									"format": "application/dash+xml"
 								}
 							]
 						},
