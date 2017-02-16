@@ -90,7 +90,33 @@ This section lists proposed changes to the [IIIF Presentation API](http://iiif.i
 
 The modifications and additions to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) described above facilitate use of static ("level 0") audio and video resources via the IIIF Presentation API, without the need to implement any additional API. The following examples demonstrate a number of different uses:
 
-  * [Captions via Annotations](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/10.json)
+  * [Duration on a Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/1.json)
+  * [Temporal Fragment of a Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/2a.json)
+  * [Temporal Fragment of a Video](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/2b.json)
+  * [Associate Audio with temporal only Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/4.json)
+  * [Associate Video with Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/5.json)
+  * [Associate Videos with times on a Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/6.json)
+  * [Associate Videos with different spaces on a Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/7.json)
+  * [Associate Videos with overlapping time and space on a Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/8.json)
+  * [Associate Video and Audio on single Canvas \[e.g. Director's commentary\]](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/9.json)
+  * [Associate Video with text overlaid at particular location on Canvas \[subtitles\]](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/10.json)
+  * [Associate Video with subtitle annotations](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/11.json)
+  * [Associate Video with WebVTT subtitle file](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/11a.json)
+  * [Associate Video with subtitle annotations and WebVTT subtitle file](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/11b.json)
+
+  * [Associate multiple Video (or Audio) representations as Choice](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/12.json)
+  * [Associate multiple Video representations as Choice, some HLS/MPEG-DASH](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/13.json)
+  * [Associate an authentication service in remote services for video](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/14.json)
+  * [Audio annotation demonstrating use if timeMode trim](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/15.json)
+  * [Orange Album](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/16.json)
+  * [Orange Album](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/17.json)
+  * [Single canvas with explicit gaps between audio tracks](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/18.json)
+  * [Canvas with sub-canvas of audio with lyrics annotations](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/20.json)
+  * [All Beatles Albums](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/21.json)
+  * [auto-advance viewingHint](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/22.json)
+  * [Score images with audio (or video) performance annotated per region](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/24.json)
+  * [Associate Audio and thumbnail with temporal-only Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/29.json)
+  * [Associate Audio and thumbnail with temporal only Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/30.json)
 
 
 ## A/V with Authentication
@@ -168,11 +194,11 @@ iiif/opera-act-1.mp4#t=0,30&xywh=0,0,100,100
 Use cases:
 
   * Keep rights from source in derivative [#35](https://github.com/IIIF/iiif-av/issues/35)
-  * Video zoom: https://github.com/IIIF/iiif-av/issues/25
-  * Segmented for download: https://github.com/IIIF/iiif-av/issues/7
-  * Segmentation by time https://github.com/IIIF/iiif-av/issues/4
-  * https://github.com/IIIF/iiif-av/issues/47
-  * https://github.com/IIIF/iiif-av/issues/39
+  * Video zoom [#25](https://github.com/IIIF/iiif-av/issues/25)
+  * Segmented for download [#7](https://github.com/IIIF/iiif-av/issues/7)
+  * Segmentation by time [#4](https://github.com/IIIF/iiif-av/issues/4)
+  * [#47](https://github.com/IIIF/iiif-av/issues/47)
+  * [#39](https://github.com/IIIF/iiif-av/issues/39)
 
 #### Video Bitstream API info.json format
 
@@ -205,9 +231,9 @@ As with the [Image API][image-api] the order of the parameters in the URI corres
 
 Use cases:
 
-  * Keep rights from source in derivative: https://github.com/IIIF/iiif-av/issues/35
-  * Segmentation by time https://github.com/IIIF/iiif-av/issues/4
-  * https://github.com/IIIF/iiif-av/issues/39
+  * Keep rights from source in derivative [#35](https://github.com/IIIF/iiif-av/issues/35)
+  * Segmentation by time [#4](https://github.com/IIIF/iiif-av/issues/4)
+  * [#39](https://github.com/IIIF/iiif-av/issues/39)
 
 #### Audio Bitstream API info.json format
 
