@@ -71,7 +71,7 @@
         {
             "id": "14.json",
             "type": "Canvas", 
-            "label": "Associate an authentication service in remote info.json for video"
+            "label": "Associate an authentication service in remote services.json for video"
         },
         {
             "id": "15.json",
