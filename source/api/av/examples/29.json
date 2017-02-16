@@ -2,10 +2,10 @@
 {
 	"id": "http://example.org/iiif/canvas/1",
 	"type": "Canvas",
-	"label": "Associate Audio and thumbnail with temporal only Canvas",
-	"description": "",
+	"label": "Associate Audio and thumbnail with temporal-only Canvas",
+	"description": "In this example we have a simple image URI as the thumbnail, it might instead be a service.",
 	"duration": 57.6,
-	"thumbnail": "http://example.org/image.jpg", // could also have service
+	"thumbnail": "http://example.org/thumbnail-image.jpg",
 	"content": [
 		{
 			"id": "...",
