@@ -1,8 +1,7 @@
 
 {
 	"type": "Manifest",
-	"label": "Orange Album",
-	"description": "one audio file, segments of file associated with different canvases",
+	"label": "One audio file, segments of file associated with different canvases",
 	"sequences": [{
 		"type": "Sequence",
 		"canvases": [{
