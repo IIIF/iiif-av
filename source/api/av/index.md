@@ -1,7 +1,14 @@
+# IIIF A/V
+
+**Status of this Document** - _This is a working document. Ideas in this document will be discussed by the [IIIF AV Working Group](http://iiif.io/community/av) and may or may not be taken forward into any IIIF specifications. Please send feedback through the IIIF AV Working Group, via [AV use cases and issues on github](https://github.com/IIIF/iiif-av/issues), or on (iiif-discuss)[iiif-discuss@googlegroups.com]._
+
+## Introduction
 
 This document describes a set of changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) to support A/V resources, and also proposes set of services for working with A/V bitstreams and integrating [IIIF Authentication API](http://iiif.io/api/auth/1.0/). Changes related to migration from the Open Annotation Data Model to the Web Annotation Data Model are also listed, as many of the [fixtures](https://github.com/IIIF/iiif-av/tree/master/source/api/av/examples) that were created as part of this process use properties from the Web Annotation JSON-LD context instead of the IIIF Presentation API context.
 
 ## IIIF Presentation API 3.0 (Choicey McChoiceface) Changes
+
+This section lists proposed changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) under the appropriate section headings. It includes only changes that related to A/V support, there are also [Presentation API issues](https://github.com/IIIF/iiif.io/issues?q=is%3Aissue+is%3Aopen+label=FIXME).
 
 ### 3. Resource Properties
 
@@ -14,18 +21,17 @@ This document describes a set of changes to the [IIIF Presentation API](http://i
   * Add new property `timeMode`, for Annotations that applies to all resources in the Body of the Annotation that could be considered to have a duration [#1075](https://github.com/IIIF/iiif.io/issues/1075). Possible values:
      * `trim` (default): If the content resource has a longer duration than the duration of portion of the canvas it is associated with, then at the end of the canvas's duration, the playback of the content resource _MUST_ also end. If the content resource has a shorter duration than the duration of the portion of the canvas it is associated with, then, for video resources, the last frame _SHOULD_ persist on-screen until the end of the canvas portion's duration. For example, a video of 120 seconds annotated to a canvas with a duration of 100 seconds would play only the first 60 seconds at normal speed.
      * `scale`: Fit the duration of content resource to the duration of the portion of the canvas it is associated with by scaling. For example, a video of 120 seconds annotated to a canvas with a duration of 60 seconds would be played at double-speed.
-     * `loop`: If the content resource is shorter than the `duration` of the canvas, it _MUST_ be repeated to fill the entire duration. Resources longer than the `duration` _MUST_ be trimmed as described above. For example, if a 20 second duration audio stream is annotated onto a canvas with duration 30 seconds, it will be played one and a half times. 
+     * `loop`: If the content resource is shorter than the `duration` of the canvas, it _MUST_ be repeated to fill the entire duration. Resources longer than the `duration` _MUST_ be trimmed as described above. For example, if a 20 second duration audio stream is annotated onto a canvas with duration 30 seconds, it will be played one and a half times.
      * Note that the association of `timeMode` with the Annotation means that different resources in the body cannot have different values.
-    
   * Add new property `choiceHint` that can be associated with a Choice, with the possible values:
      * `client`: The client software is expected to select an appropriate option without user interaction.
      * `user`: The client software is expected to present an interface to allow the user to explicitly select an option.
-     * In the absence of `choiceHint`, the client can use any algorithm or process to make the determination
+     * In the absence of a `choiceHint`, the client can use any algorithm or process to make the determination.
   * Add a new `viewingHint` value of "none", that can be associated with an AnnotationCollection, AnnotationPage, Annotation, SpecificResource, or a Choice. If this is provided, then the client should not render the resource by default, but allow the user to turn it on and off.
   * Consider whether or not to rename `viewingHint` to `renderingHint` as "viewing" an audio file is weird. [#1073](https://github.com/IIIF/iiif.io/issues/1073)
-  * Add a new `viewingHint` value of "auto-advance", that can be associated with Collection, Manifest, Sequence and Canvas. When the client reaches the end of a Canvas with a duration dimension that has (or is within a resource that has) this `viewingHint`, it _SHOULD_ immediately proceed to the next Canvas and render it. 
+  * Add a new `viewingHint` value of "auto-advance", that can be associated with Collection, Manifest, Sequence and Canvas. When the client reaches the end of a Canvas with a duration dimension that has (or is within a resource that has) this `viewingHint`, it _SHOULD_ immediately proceed to the next Canvas and render it.
     * If there is no subsequent Canvas in the current context, then this `viewingHint` should be ignored.
-    * When applied to a Collection, the client should treat the first Canvas of the next Manifest as following the last Canvas of the previous Manifest, respecting any `startCanvas` specified. 
+    * When applied to a Collection, the client should treat the first Canvas of the next Manifest as following the last Canvas of the previous Manifest, respecting any `startCanvas` specified.
 * Add a new `viewingHint` value of "together", that can be associated with Collections. A client _SHOULD_ present all of the child manifests to the user at once in a separate viewing area with its own controls. Caveats:
     * Clients _SHOULD_ catch attempts to create too many viewing areas and not do that.
     * The `together` value _SHOULD NOT_ be interpreted as applying to the members of children.
@@ -38,7 +44,7 @@ This document describes a set of changes to the [IIIF Presentation API](http://i
 
 #### 4.5. Linked Data Context and Extensions
 
- * Use and explain the import of the Web Annotation context (changes several key names)
+ * Use and explain the import of the Web Annotation context (changes several key names) [#???](https://github.com/IIIF/iiif.io/issues).
 
 ### 5. Resource Structure
 
@@ -46,18 +52,18 @@ This document describes a set of changes to the [IIIF Presentation API](http://i
 
   * Remove `images` and `otherContent` [#1068](https://github.com/IIIF/iiif.io/issues/1068)
   * Add a new property, `content`, which is an ordered list of `AnnotationPage` resources.  These pages may be either inline or by reference to their URIs.  The position in the overall order of Annotations across pages determines the z-index of where the resource should be painted, with the first annotation's body resource being the bottom-most z-index. [#1068](https://github.com/IIIF/iiif.io/issues/1068)
-  * Definition of Canvas changed to include duration, no longer just an aspect ratio.
+  * Definition of Canvas changed to include `duration`, no longer just an aspect ratio.
   * `sc:painting` (and all `sc:` motivations)  will be changed to, e.g., `painting`
   * Similarly, `oa:Annotation`, etc. will become `Annotation`, etc.
-  * Explain that height and width are always `scale`, whereas duration can be changed with `timeMode`.
-  * Explain that an Annotation can relate a Canvas to another Canvas
-      * Including that the body Canvas might be external
-      * Warn that very deep recursion should be avoided
-      * An error to create a loop
+  * Explain that height and width are always `scale`, whereas handling of duration can be changed with `timeMode`.
+  * Explain that an Annotation can relate a Canvas to another Canvas:
+      * Including that the body Canvas might be external.
+      * Warn that very deep recursion should be avoided.
+      * It is an error to create a loop.
 
 #### 5.4. Image Resources
 
-  * Rename Section to "Content Resources"
+  * Rename Section to "Content Resources".
   * Rework to describe how to associate any content resource with a Canvas via an Annotation, rather than just images.
   * Remove all details about renamed properties, replace with Web Annotation context.
   * As part of 5.4, introduce Choice of Content Resource to describe `Choice`
@@ -77,52 +83,62 @@ This document describes a set of changes to the [IIIF Presentation API](http://i
 
 ### 6. Advanced Association Features
 
-  * Remove section and export to a new document
+  * Remove section and export to a new document.
 
 
-## AV Description in the Presentation API
+## A/V Description in the Presentation API
 
-The modifications and additions to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) described above facilitate use of static (level0) audio and video resources via the IIIF Presentation API, without the need to implement any additional API. The following examples demonstrate a number of different uses:
+The modifications and additions to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) described above facilitate use of static ("level 0") audio and video resources via the IIIF Presentation API, without the need to implement any additional API. The following examples demonstrate a number of different uses:
 
-  * Captions via Annotations
-
-Example: https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/10.json
+  * [Captions via Annotations](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/10.json)
 
 
-## AV with Authentication
+## A/V with Authentication
 
+The [IIIF Authentication API](http://iiif.io/api/auth/) may be used to orchestrate authentication and access control for audio and video resources using the same approach as image resources exposed through the [IIIF Image API](http://iiif.io/api/image/). Information about authentication services is expressed in a services description document analogous to the Image API `info.json`. A services document is required even in the case of static ("level 0") audio and video resources, where no transformation services are provided, because the document is used a probe to determine authentication and authorization status.
 
-Example: https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/14.json
+The following JSON-LD snippet shows how a `service` description `http://example.org/for-foo/services.json` is associated with a video resource `http://example.org/foo.mp4` in a `painting` Annotation:
 
 ```javascript
+{
+  "id": "http://example.org/iiif/audio/1",
+  "type": "Annotation",
+  "motivation": "painting",
   "body" : {  // or item in Choice
     "id": "http://example.org/foo.mp4",
     "type": "Video",
     "format": "video/mpeg4;codecs='...'",
     "service": {
-      "id": "http://example.org/whatever-for-foo/services.json",
-      "profile": "http://iiif.io/api/svc/0/profile.json",  
-      "description": "Auth services live in this external service description JSON" 
+      "id": "http://example.org/for-foo/services.json",
+      "profile": "http://iiif.io/api/svc/0/profile.json",
+      "description": "Auth services live in this external service description JSON"
     }
   }
+  "target": "http://example.org/iiif/canvas/1"
+}
 ```
+
+A complete Canvas description with the an authentication service link is shown in [example 14](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/14.json].
+
+The format of the service description document is shown below.
+
 
 ## Bitstream APIs
 
 A number of [use cases (labeled AV-bitstream-API)](https://github.com/IIIF/iiif-av/issues?q=is%3Aissue+is%3Aopen+label%3AAV-bitstream-API) require the generation of derivative video, audio and image resources from source video or audio resources. We imagine that each of these APIs will follow the style of the [Image API][image-api], being a resource-oriented, ordered set of parameters, expressed as path fragments. The base URIs of these APIs will be described, along with any authentication information for the AV resource, in a services description document.
 
 ```javascript
-{ 
+{
   "@context" : "http://iiif.io/api/svc/0/context.json",
   "id": "http://example.org/whatever/services.json",
-  "profile": "http://iiif.io/api/svc/0/profile.json",  
+  "profile": "http://iiif.io/api/svc/0/profile.json",
   "for": "http://example.org/video/foo.mp4",
   "service": [ {
        // ... frame-extraction service here ...
        "id": "http:/example.org/frame-extract/foo",
        "profile": "http://iiif.io/api/av/0/v2i"
-
-    },{
+    },
+    {
        // ... auth in here as above...
     }
   ]
@@ -158,6 +174,19 @@ Use cases:
   * https://github.com/IIIF/iiif-av/issues/47
   * https://github.com/IIIF/iiif-av/issues/39
 
+#### Video Bitstream API info.json format
+
+```javascript
+{
+  "id": "http://example.org/prefix/video-api-id",
+  "profile": "http://iiif.io/api/av/video/0/level0.json",
+  "width": 800,
+  "height": 600,
+  "duration": 369.2,
+  ...
+}
+```
+
 ### Audio Bitstream API
 
 Possible URI pattern for requesting image information and content resources, where `audio-api-id` is specified in the services description documen:
@@ -180,14 +209,14 @@ Use cases:
   * Segmentation by time https://github.com/IIIF/iiif-av/issues/4
   * https://github.com/IIIF/iiif-av/issues/39
 
-#### Audio info.json
+#### Audio Bitstream API info.json format
 
 ```javascript
 {
-  "id": "",
-  "profile": "",
+  "id": "http://example.org/prefix/audio-api-id",
+  "profile": "http://iiif.io/api/av/audio/0/level0.json",
   "duration": 25.3,
-  
+  ...
 }
 ```
 
@@ -203,8 +232,8 @@ Described in use case [#5](https://github.com/IIIF/iiif-av/issues/5). Expectatio
 {v2i-api-id}/{timePoint}/{region}/{size}/{rotation}/{quality}.{fmt} -- Image API request at timePoint
 ```
 
-`timePoint` is specified as the floating point number of seconds after the beginning of the video stream.
-The remaining parameters are interpreted exactly as the Image API, and a Image API `info.json` should be provided at `{v2i-api-id}/timePoint/info.json`
+  * `timePoint` is specified as the floating point number of seconds after the beginning of the video stream.
+  * The remaining parameters are interpreted exactly as the Image API, and a Image API `info.json` should be provided at `{v2i-api-id}/timePoint/info.json`
 
 #### Video to Image info.json format
 
@@ -217,10 +246,10 @@ The remaining parameters are interpreted exactly as the Image API, and a Image A
 }
 ```
 
- * level0 - only the `timePoints` specified (cf sizes)
- * level1 - can also give other `timePoints`, and the given ones are preferred
+  * level0 - only the `timePoints` specified (cf. `sizes` in Image API)
+  * level1 - can also give other `timePoints`, and the given ones are preferred
 
 
 ### Video to Audio transformation
 
-We assume that video to audio transformation can be subsumed in an Audio API service associated with a Video rather than an Audio source. Use case: [#30](https://github.com/IIIF/iiif-av/issues/30). 
+We assume that video to audio transformation can be subsumed in an Audio API service associated with a Video rather than creation of a Video to Audio API that then exposes an Audio API service. Use case: [#30](https://github.com/IIIF/iiif-av/issues/30).
