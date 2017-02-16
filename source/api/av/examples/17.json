@@ -1,7 +1,7 @@
 
 {
 	"type": "Manifest",
-	"label": "Orange Album",
+	"label": "Use of Ranges with fragments of Audio tracks",
 	"sequences": [{
 		"type": "Sequence",
 		"canvases": [{
@@ -19,7 +19,7 @@
 							"id": "...",
 							"type": "Annotation",
 							"motivation": "painting",
-							"timeMode": "trim", // "scale", "trim" (default), "loop"
+							"timeMode": "trim",
 							"body": {
 								"id": "http://example.org/foo.mp3",
 								"type": "Audio"
@@ -68,12 +68,12 @@
 				{
 					"id": "http://example.org/iiif/canvas/1", 
 					"type": "Canvas",
-					"label": "Opera Act 1",
+					"label": "Opera Act 1"
 				},
 				{
 					"id": "http://example.org/iiif/range/2",
 					"type": "Range",
-					"label": "Opera Act 2",
+					"label": "Opera Act 2"
 				}
 			]
 		},
@@ -94,7 +94,7 @@
 					"id": "http://example.org/iiif/canvas2#t=30,", 
 					"type": "Canvas",
 					"label": "Rest of Act 2"
-				},				
+				}
 			]
 		}
 	]	
