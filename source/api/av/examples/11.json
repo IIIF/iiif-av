@@ -42,7 +42,7 @@
 			"within": {
 				"id": "...",
 				"type": "AnnotationCollection",
-				"label": "Captions, not Subtitles",
+				"label": "Captions, not Subtitles"
 			},
 			"items": [
 				{
