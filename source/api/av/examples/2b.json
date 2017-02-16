@@ -3,6 +3,7 @@
 	"id": "http://example.org/iiif/canvas/1",
 	"type": "Canvas",
 	"label": "Temporal Fragment of a Video",
+	"description": "Use the first 57.6 seconds of a video resource as the content to be displayed on the canvas",
 	"height": 1440,
 	"width": 1920,
 	"duration": 57.6,

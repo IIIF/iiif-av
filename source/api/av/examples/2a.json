@@ -3,6 +3,7 @@
 	"id": "http://example.org/iiif/canvas/1",
 	"type": "Canvas",
 	"label": "Temporal Fragment of a Canvas",
+	"description": "Intent is to show the full jpg for the first 30 seconds of the canvas's duration",
 	"height": 1440,
 	"width": 1920,
 	"duration": 57.6,
