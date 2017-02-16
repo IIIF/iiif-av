@@ -2,7 +2,8 @@
 
 Work of the IIIF Audio/Visual working group
 
-See our [Charter][charter]
+  * [Working group charter][charter]
+  * [Working document](https://github.com/IIIF/iiif-av/blob/master/source/api/av/index.md)
 
 [charter]: http://iiif.io/community/groups/av/
 
