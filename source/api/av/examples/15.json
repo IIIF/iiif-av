@@ -1,7 +1,8 @@
 
 {
 	"type": "Manifest",
-	"label": "Orange Album",
+	"label": "Audio annotation demonstrating use if timeMode trim",
+	"description": "The timeMode default is trim, other options are scale and loop.",
 	"sequences": [{
 		"type": "Sequence",
 		"canvases": [{
@@ -19,7 +20,7 @@
 							"id": "...",
 							"type": "Annotation",
 							"motivation": "painting",
-							"timeMode": "trim", // "scale", "trim" (default), "loop"
+							"timeMode": "trim",
 							"body": {
 								"id": "http://example.org/foo.mp3",
 								"type": "Audio"
@@ -58,8 +59,4 @@
 		}
 	]
 	}]
-}
-
-{
-
 }
