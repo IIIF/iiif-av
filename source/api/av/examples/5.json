@@ -3,7 +3,7 @@
 	"id": "http://example.org/iiif/canvas/1",
 	"type": "Canvas",
 	"label": "Associate Video with Canvas",
-	"description": "Video will be distorted in xy to be square, and trimmed after 57.6 seconds of normal play time",
+	"description": "Intent is to associate the video with the canvas. Video will be distorted in xy to be 1000x1000 square, and trimmed after 57.6 seconds of normal play time",
 	"height": 1000,
 	"width": 1000,
 	"duration": 57.6,

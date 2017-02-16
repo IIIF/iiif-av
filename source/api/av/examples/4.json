@@ -3,7 +3,7 @@
 	"id": "http://example.org/iiif/canvas/1",
 	"type": "Canvas",
 	"label": "Associate Audio with temporal only Canvas",
-	"description": "Default behavior is to trim at the end of the canvas's duration, if the audio lasts longer than it.",
+	"description": "Intent is to associate the mp3 with the duration of the canvas. Default behavior is to trim at the end of the canvas's duration, if the audio lasts longer than the canvas, then the playing of the audio will stop.",
 	"duration": 57.6,
 	"content": [
 		{
