@@ -1,6 +1,6 @@
 # IIIF A/V
 
-**Status of this Document** - _This is a working document. Ideas in this document will be discussed by the [IIIF AV Working Group](http://iiif.io/community/av) and may or may not be taken forward into any IIIF specifications. Please send feedback through the IIIF AV Working Group, via [AV use cases and issues on github](https://github.com/IIIF/iiif-av/issues), or on (iiif-discuss)[iiif-discuss@googlegroups.com]._
+**Status of this Document** - _This is a working document. Ideas in this document will be discussed by the [IIIF AV Working Group](http://iiif.io/community/groups/av/) and may or may not be taken forward into any IIIF specifications. Please send feedback through the IIIF AV Working Group, via [AV use cases and issues on github](https://github.com/IIIF/iiif-av/issues), or on [iiif-discuss](https://groups.google.com/forum/#!forum/iiif-discuss)._
 
 ## Introduction
 
@@ -8,7 +8,7 @@ This document describes a set of changes to the [IIIF Presentation API](http://i
 
 ## IIIF Presentation API 3.0 (Choicey McChoiceface) Changes
 
-This section lists proposed changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) under the appropriate section headings. It includes only changes that related to A/V support, there are also [Presentation API issues](https://github.com/IIIF/iiif.io/issues?q=is%3Aissue+is%3Aopen+label=FIXME).
+This section lists proposed changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) under the appropriate section headings. It includes only changes that related to A/V support, there are also [Presentation API issues](https://github.com/IIIF/iiif.io/issues?q=is%3Aissue+is%3Aopen+label%3Apresentation).
 
 ### 3. Resource Properties
 
@@ -44,7 +44,7 @@ This section lists proposed changes to the [IIIF Presentation API](http://iiif.i
 
 #### 4.5. Linked Data Context and Extensions
 
- * Use and explain the import of the Web Annotation context (changes several key names) [#???](https://github.com/IIIF/iiif.io/issues).
+ * Use and explain the import of the Web Annotation context (changes several key names) [#496](https://github.com/IIIF/iiif.io/issues/496).
 
 ### 5. Resource Structure
 
@@ -103,7 +103,6 @@ The modifications and additions to the [IIIF Presentation API](http://iiif.io/ap
   * [Associate Video with subtitle annotations](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/11.json)
   * [Associate Video with WebVTT subtitle file](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/11a.json)
   * [Associate Video with subtitle annotations and WebVTT subtitle file](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/11b.json)
-
   * [Associate multiple Video (or Audio) representations as Choice](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/12.json)
   * [Associate multiple Video representations as Choice, some HLS/MPEG-DASH](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/13.json)
   * [Associate an authentication service in remote services for video](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/14.json)
@@ -144,14 +143,14 @@ The following JSON-LD snippet shows how a `service` description `http://example.
 }
 ```
 
-A complete Canvas description with the an authentication service link is shown in [example 14](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/14.json].
+A complete Canvas description with the an authentication service link is shown in [example 14](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/14.json).
 
 The format of the service description document is shown below.
 
 
 ## Bitstream APIs
 
-A number of [use cases (labeled AV-bitstream-API)](https://github.com/IIIF/iiif-av/issues?q=is%3Aissue+is%3Aopen+label%3AAV-bitstream-API) require the generation of derivative video, audio and image resources from source video or audio resources. We imagine that each of these APIs will follow the style of the [Image API][image-api], being a resource-oriented, ordered set of parameters, expressed as path fragments. The base URIs of these APIs will be described, along with any authentication information for the AV resource, in a services description document.
+A number of [use cases (labeled AV-bitstream-API)](https://github.com/IIIF/iiif-av/issues?q=is%3Aissue+is%3Aopen+label%3AAV-bitstream-API) require the generation of derivative video, audio and image resources from source video or audio resources. We imagine that each of these APIs will follow the style of the [Image API][http://iiif.io/api/image/], being a resource-oriented, ordered set of parameters, expressed as path fragments. The base URIs of these APIs will be described, along with any authentication information for the AV resource, in a services description document.
 
 ```javascript
 {
@@ -197,8 +196,8 @@ Use cases:
   * Video zoom [#25](https://github.com/IIIF/iiif-av/issues/25)
   * Segmented for download [#7](https://github.com/IIIF/iiif-av/issues/7)
   * Segmentation by time [#4](https://github.com/IIIF/iiif-av/issues/4)
-  * [#47](https://github.com/IIIF/iiif-av/issues/47)
-  * [#39](https://github.com/IIIF/iiif-av/issues/39)
+  * Request a snippet be created for later download  [#47](https://github.com/IIIF/iiif-av/issues/47)
+  * Ability to describe a master file that's not available [#39](https://github.com/IIIF/iiif-av/issues/39)
 
 #### Video Bitstream API info.json format
 
@@ -233,7 +232,7 @@ Use cases:
 
   * Keep rights from source in derivative [#35](https://github.com/IIIF/iiif-av/issues/35)
   * Segmentation by time [#4](https://github.com/IIIF/iiif-av/issues/4)
-  * [#39](https://github.com/IIIF/iiif-av/issues/39)
+  * Ability to describe a master file that's not available [#39](https://github.com/IIIF/iiif-av/issues/39)
 
 #### Audio Bitstream API info.json format
 
