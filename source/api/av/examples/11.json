@@ -2,8 +2,8 @@
 {
 	"id": "http://example.org/iiif/canvas/1",
 	"type": "Canvas",
-	"label": "Associate Video with WebVTT subtitle file",
-	"description": "Expected behavior is to render one of the videos, and the subtitles from the VTT OR the annotations that are equivalent to them ( current ore:similarTo). This makes the VTT easy to use in simple cases, and allows more complex and controlled layouts possible via annotations without ambiguity. In the presence of both, the client SHOULD use the annotations. ",
+	"label": "Associate Video with subtitle annotations",
+	"description": "Expected behavior is to render one of the videos, and the subtitle annotations.",
 	"height": 1000,
 	"width": 1000,
 	"duration": 100,
@@ -30,11 +30,6 @@
 									"type": "Video"
 								}
 							]
-						},
-						{
-							"id": "http://example.org/foo.vtt",
-							"type": "Text",
-							"format": "text/vtt"
 						}
 					],
 					"target": "http://example.org/iiif/canvas/1"
@@ -44,7 +39,6 @@
 		{
 			"id": "...",
 			"type": "AnnotationPage",
-			"ore:similarTo": "http://example.org/foo.vtt",
 			"within": {
 				"id": "...",
 				"type": "AnnotationCollection",
