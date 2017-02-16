@@ -18,7 +18,7 @@
 	"type": "Collection",
 	"label": "White Album",
 	"description": "Intent is for viewer to render both manifests, to allow the user to explore the digitized physical objects separately while listening to the audio",
-	"viewingHint": "concurrent", // all members of the collection are to be rendered concurrently (beware collection bombs)
+	"viewingHint": "together", // all members of the collection are to be rendered togetherly (beware collection bombs)
 	"members": [
 		{
 			"id": "manifest1",
