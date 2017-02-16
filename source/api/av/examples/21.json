@@ -2,7 +2,7 @@
 {
 	"type": "Collection",
 	"label": "All Beatles Albums",
-	"viewingHint": "autoadvance",
+	"viewingHint": "auto-advance",
 	"members": [
 		{
 			"id": "collection2",
@@ -35,9 +35,9 @@
 
 {
 	"type": "Manifest",
-	"label": "autoadvance viewingHint",
+	"label": "auto-advance viewingHint",
 	"description": "Manifest with canvases that the player auto advances from 1 to 2",
-	"viewingHint": "autoadvance", // Could also be on sequence, individual canvases
+	"viewingHint": "auto-advance", // Could also be on sequence, individual canvases
 	"sequences": [
 		{
 			"type": "Sequence",
