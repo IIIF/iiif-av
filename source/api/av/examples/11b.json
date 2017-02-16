@@ -2,7 +2,7 @@
 {
 	"id": "http://example.org/iiif/canvas/1",
 	"type": "Canvas",
-	"label": "Associate Video with WebVTT subtitle file",
+	"label": "Associate Video with subtitle annotations and WebVTT subtitle file",
 	"description": "Expected behavior is to render one of the videos and the subtitles from the annotations. There are also VTT captions associated with the videos, but the viewingHint none instructs the client not to display them by default.",
 	"height": 1000,
 	"width": 1000,
