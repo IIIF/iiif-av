@@ -5,7 +5,7 @@
 
 ### Introduction
 
-This document describes a set of changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) to support A/V resources, and also proposes set of services for working with A/V bitstreams and integrating with the [IIIF Authentication API](http://iiif.io/api/auth/1.0/). Changes related to migration from the Open Annotation Data Model to the Web Annotation Data Model are also listed, as many of the [fixtures](https://github.com/IIIF/iiif-av/tree/master/source/api/av/examples) that were created as part of this process use properties from the Web Annotation JSON-LD context instead of the IIIF Presentation API context.
+This document describes a set of changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) to support A/V resources, and also proposes a set of services for working with A/V bitstreams and integrating with the [IIIF Authentication API](http://iiif.io/api/auth/1.0/). Changes related to migration from the Open Annotation Data Model to the Web Annotation Data Model are also listed, as many of the [fixtures](https://github.com/IIIF/iiif-av/tree/master/source/api/av/examples) that were created as part of this process use properties from the Web Annotation JSON-LD context instead of the IIIF Presentation API context.
 
 ### IIIF Presentation API 3.0 (Choicey McChoiceface) Changes
 
