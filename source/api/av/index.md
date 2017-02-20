@@ -1,18 +1,19 @@
-# IIIF A/V
+
+## IIIF A/V
 
 **Status of this Document** - _This is a working document. Ideas in this document will be discussed by the [IIIF AV Working Group](http://iiif.io/community/groups/av/) and may or may not be taken forward into any IIIF specifications. Please send feedback through the IIIF AV Working Group, via [AV use cases and issues on github](https://github.com/IIIF/iiif-av/issues), or on [iiif-discuss](https://groups.google.com/forum/#!forum/iiif-discuss)._
 
-## Introduction
+### Introduction
 
-This document describes a set of changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) to support A/V resources, and also proposes set of services for working with A/V bitstreams and integrating [IIIF Authentication API](http://iiif.io/api/auth/1.0/). Changes related to migration from the Open Annotation Data Model to the Web Annotation Data Model are also listed, as many of the [fixtures](https://github.com/IIIF/iiif-av/tree/master/source/api/av/examples) that were created as part of this process use properties from the Web Annotation JSON-LD context instead of the IIIF Presentation API context.
+This document describes a set of changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) to support A/V resources, and also proposes a set of services for working with A/V bitstreams and integrating with the [IIIF Authentication API](http://iiif.io/api/auth/1.0/). Changes related to migration from the Open Annotation Data Model to the Web Annotation Data Model are also listed, as many of the [fixtures](https://github.com/IIIF/iiif-av/tree/master/source/api/av/examples) that were created as part of this process use properties from the Web Annotation JSON-LD context instead of the IIIF Presentation API context.
 
-## IIIF Presentation API 3.0 (Choicey McChoiceface) Changes
+### IIIF Presentation API 3.0 (Choicey McChoiceface) Changes
 
 This section lists proposed changes to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) under the appropriate section headings. It includes only changes that related to A/V support, there are also [Presentation API issues](https://github.com/IIIF/iiif.io/issues?q=is%3Aissue+is%3Aopen+label%3Apresentation).
 
-### 3. Resource Properties
+#### 3. Resource Properties
 
-#### 3.3. Technical Properties
+##### 3.3. Technical Properties
 
   * Rename `@id` to `id` [#590](https://github.com/IIIF/iiif.io/issues/590)
   * Rename `@type` to `type` [#590](https://github.com/IIIF/iiif.io/issues/590)
@@ -36,19 +37,19 @@ This section lists proposed changes to the [IIIF Presentation API](http://iiif.i
     * Clients _SHOULD_ catch attempts to create too many viewing areas and not do that.
     * The `together` value _SHOULD NOT_ be interpreted as applying to the members of children.
 
-### 4. JSON-LD Considerations
+#### 4. JSON-LD Considerations
 
-#### 4.3. Language of Property Values
+##### 4.3. Language of Property Values
 
  * Consider JSON-LD Language Maps [#755](https://github.com/IIIF/iiif.io/issues/755).
 
-#### 4.5. Linked Data Context and Extensions
+##### 4.5. Linked Data Context and Extensions
 
  * Use and explain the import of the Web Annotation context (changes several key names) [#496](https://github.com/IIIF/iiif.io/issues/496).
 
-### 5. Resource Structure
+#### 5. Resource Structure
 
-#### 5.3. Canvas
+##### 5.3. Canvas
 
   * Remove `images` and `otherContent` [#1068](https://github.com/IIIF/iiif.io/issues/1068)
   * Add a new property, `content`, which is an ordered list of `AnnotationPage` resources.  These pages may be either inline or by reference to their URIs.  The position in the overall order of Annotations across pages determines the z-index of where the resource should be painted, with the first annotation's body resource being the bottom-most z-index. [#1068](https://github.com/IIIF/iiif.io/issues/1068)
@@ -61,32 +62,32 @@ This section lists proposed changes to the [IIIF Presentation API](http://iiif.i
       * Warn that very deep recursion should be avoided.
       * It is an error to create a loop.
 
-#### 5.4. Image Resources
+##### 5.4. Image Resources
 
   * Rename Section to "Content Resources".
   * Rework to describe how to associate any content resource with a Canvas via an Annotation, rather than just images.
   * Remove all details about renamed properties, replace with Web Annotation context.
   * As part of 5.4, introduce Choice of Content Resource to describe `Choice`
 
-#### 5.5. Annotation List
+##### 5.5. Annotation List
 
   * Remove AnnotationLists in favor of the equivalent structures from the Web Annotation model, `AnnotationPage`.
 
-#### 5.6. Range
+##### 5.6. Range
 
   * Is broken. See [#1070](https://github.com/IIIF/iiif.io/issues/1070).
 
-#### 5.7. Layer
+##### 5.7. Layer
 
   * Remove Layers in favor of the equivalent structure from the Web Annotation model, `AnnotationCollection`.
 
 
-### 6. Advanced Association Features
+#### 6. Advanced Association Features
 
   * Remove section and export to a new document.
 
 
-## A/V Description in the Presentation API
+### A/V Description in the Presentation API
 
 The modifications and additions to the [IIIF Presentation API](http://iiif.io/api/presentation/2.1/) described above facilitate use of static ("level 0") audio and video resources via the IIIF Presentation API, without the need to implement any additional API. The following examples demonstrate a number of different uses:
 
@@ -118,7 +119,7 @@ The modifications and additions to the [IIIF Presentation API](http://iiif.io/ap
   * [Associate Audio and thumbnail with temporal only Canvas](https://github.com/IIIF/iiif-av/blob/master/source/api/av/examples/30.json)
 
 
-## A/V with Authentication
+### A/V with Authentication
 
 The [IIIF Authentication API](http://iiif.io/api/auth/) may be used to orchestrate authentication and access control for audio and video resources using the same approach as image resources exposed through the [IIIF Image API](http://iiif.io/api/image/). Information about authentication services is expressed in a services description document analogous to the Image API `info.json`. A services document is required even in the case of static ("level 0") audio and video resources, where no transformation services are provided, because the document is used a probe to determine authentication and authorization status.
 
@@ -148,7 +149,7 @@ A complete Canvas description with the an authentication service link is shown i
 The format of the service description document is shown below.
 
 
-## Bitstream APIs
+### Bitstream APIs
 
 A number of [use cases (labeled AV-bitstream-API)](https://github.com/IIIF/iiif-av/issues?q=is%3Aissue+is%3Aopen+label%3AAV-bitstream-API) require the generation of derivative video, audio and image resources from source video or audio resources. We imagine that each of these APIs will follow the style of the [Image API][http://iiif.io/api/image/], being a resource-oriented, ordered set of parameters, expressed as path fragments. The base URIs of these APIs will be described, along with any authentication information for the AV resource, in a services description document.
 
@@ -172,7 +173,7 @@ A number of [use cases (labeled AV-bitstream-API)](https://github.com/IIIF/iiif-
 
 The following sections describe the APIs for Audio and Video that might be described in the services document.
 
-### Video Bitstream API
+#### Video Bitstream API
 
 Possible URI pattern for requesting image information and content resources, where `av-api-id` is specified in the services description document:
 
@@ -199,7 +200,7 @@ Use cases:
   * Request a snippet be created for later download  [#47](https://github.com/IIIF/iiif-av/issues/47)
   * Ability to describe a master file that's not available [#39](https://github.com/IIIF/iiif-av/issues/39)
 
-#### Video Bitstream API info.json format
+##### Video Bitstream API info.json format
 
 ```javascript
 {
@@ -212,7 +213,7 @@ Use cases:
 }
 ```
 
-### Audio Bitstream API
+#### Audio Bitstream API
 
 Possible URI pattern for requesting image information and content resources, where `audio-api-id` is specified in the services description documen:
 
@@ -234,7 +235,7 @@ Use cases:
   * Segmentation by time [#4](https://github.com/IIIF/iiif-av/issues/4)
   * Ability to describe a master file that's not available [#39](https://github.com/IIIF/iiif-av/issues/39)
 
-#### Audio Bitstream API info.json format
+##### Audio Bitstream API info.json format
 
 ```javascript
 {
@@ -245,7 +246,7 @@ Use cases:
 }
 ```
 
-### Video to Image API
+#### Video to Image API
 
 Described in use case [#5](https://github.com/IIIF/iiif-av/issues/5). Expectation is that this interface would be able to present a Image API at a given timepoint in the video. Possible URI patterns, where `v2i-api-id` is specified in the services description document:
 
@@ -260,7 +261,7 @@ Described in use case [#5](https://github.com/IIIF/iiif-av/issues/5). Expectatio
   * `timePoint` is specified as the floating point number of seconds after the beginning of the video stream.
   * The remaining parameters are interpreted exactly as the Image API, and a Image API `info.json` should be provided at `{v2i-api-id}/timePoint/info.json`
 
-#### Video to Image info.json format
+##### Video to Image info.json format
 
 ```javascript
 {
@@ -274,7 +275,6 @@ Described in use case [#5](https://github.com/IIIF/iiif-av/issues/5). Expectatio
   * level0 - only the `timePoints` specified (cf. `sizes` in Image API)
   * level1 - can also give other `timePoints`, and the given ones are preferred
 
-
-### Video to Audio transformation
+#### Video to Audio transformation
 
 We assume that video to audio transformation can be subsumed in an Audio API service associated with a Video rather than creation of a Video to Audio API that then exposes an Audio API service. Use case: [#30](https://github.com/IIIF/iiif-av/issues/30).
