@@ -75,7 +75,14 @@ This section lists proposed changes to the [IIIF Presentation API](http://iiif.i
 
 ##### 5.6. Range
 
-  * Is broken. See [#1070](https://github.com/IIIF/iiif.io/issues/1070).
+Ranges have been overhauled to solve [#1070](https://github.com/IIIF/iiif.io/issues/1070).
+
+  * Every range will explicitly include (transitively) all canvases and parts of canvases that can be considered part of that range. Conversely any canvas or part that is not explicitly included is not part of the range.
+  * The `members` property lists (in order) all canvases and ranges included in the range, and the `canvases` and `ranges` properties will be removed.
+  * All of the ranges, but not any included canvases, with labels and without the `no-nav` viewing hint will be displayed to the user for navigation. If a part of a canvas should have a label, then a range must be created to encapsulate it and the label associated with that range.
+  * The requirement for a label on every member object is removed.
+  * Inclusion is by value, not by reference, as per 2.x. Thus the structure will be present in the document directly, rather than being calculated from the URIs from a flat list of resources.
+
 
 ##### 5.7. Layer
 
